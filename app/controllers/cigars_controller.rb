@@ -1,0 +1,2 @@
+class CigarsController < ApplicationController
+end
