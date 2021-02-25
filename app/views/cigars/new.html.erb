@@ -1,0 +1,31 @@
+<h1>Add a Cigar to your Digital Humidor</h1>
+
+<%= form_for(@cigar) do |f| %>
+    <div>
+        <%= f.label :name, 'Name:' %>
+        <%= f.text_field :name %>
+    </div><br>
+
+    <div>
+        <%= f.label :style, 'Style:' %>
+        <%= f.text_field :style %>
+    </div><br>
+
+    <p> Brand Library: </p>
+
+    <div>
+        <%= f.collection_select :brand, Brand.all, :id, :name %>
+    </div><br>
+
+    <p> Add a new Brand: </p>
+       
+    <div>
+        <%= f.fields_for :brand do |b| %>
+            <%= b.label :name, 'Name:' %>
+            <%= b.text_field :name %>
+        <% end %>
+    
+    </div><br>
+
+    <%= f.submit "Add to Humidor" %>
+<% end %>
