@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_004927) do
+ActiveRecord::Schema.define(version: 2021_02_25_033541) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 2021_02_24_004927) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "stars"
-    t.string "style"
     t.integer "user_id", null: false
     t.integer "cigar_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "summary"
     t.index ["cigar_id"], name: "index_reviews_on_cigar_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
