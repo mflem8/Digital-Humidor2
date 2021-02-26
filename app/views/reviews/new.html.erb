@@ -1,10 +1,17 @@
+<h1>Add a Review for <%= @cigar.brand.name %> <%= @cigar.name %></h1>
+
 <%= form_for(@review) do |f| %>
     <div>
-        <%= f.label :stars, "Stars:" %>
-        <%= f.text_field :stars %>
+        <%= f.label :summary, "Summary:" %>
+        <%= f.text_area :summary %>
     </div><br>
     <div>
-        <%= f.label %>
-    </div>
+        <%= f.label :stars, "Stars:" %>
+        <%= f.number_field :stars, in: 1.0..5.0, step: 0.5 %>
+    </div><br>
+
+    <%= f.hidden_field :cigar_id %>
+
+    <%= f.submit %>
 
 <% end %>
