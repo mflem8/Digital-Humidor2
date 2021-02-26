@@ -1,3 +1,5 @@
+<%= render partial: 'layouts/errors', locals: {object: @review} %>
+
 <h1>Add a Review for <%= @cigar.brand.name %> <%= @cigar.name %></h1>
 
 <%= form_for(@review) do |f| %>
