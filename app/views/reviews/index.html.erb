@@ -1,0 +1,7 @@
+<h1>Reviews Library</h1>
+
+<ul>
+<% @reviews.each do |rev| %>
+    <li><%= rev.cigar.brand.name %> <%= rev.cigar.name %> - <%= rev.summary %> - <%= rev.stars %></li><br>
+<% end %>
+</ul>
