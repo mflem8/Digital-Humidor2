@@ -1,0 +1,6 @@
+<h1>My Digital Humidor</h1>
+
+<% @cigars.each do |c| %>
+    <h3><%= c.brand.name %> <%= c.name %></h3>
+    <%= link_to "Leave a Review", new_cigar_review_path(c.id) %>
+<% end %>
