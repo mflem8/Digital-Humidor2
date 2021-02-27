@@ -23,4 +23,14 @@ class SessionsController < ApplicationController
         session.delete(:user_id)
         redirect_to '/'
     end
+
+    def omniauth
+        User.find_or_create_by(email: auth[:info][:email])
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
+    end
 end

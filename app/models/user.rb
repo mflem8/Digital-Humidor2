@@ -6,5 +6,9 @@ class User < ApplicationRecord
     has_secure_password
 
     validates :username, uniqueness: true, presence: true
+
+    def self.create_by_google_omniauth(auth)
+        self.find_or_create_by(username: auth[:info][:username])
+    end
     
 end
