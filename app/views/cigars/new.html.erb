@@ -16,7 +16,7 @@
     <p> Brand Library: </p>
 
     <div>
-        <%= f.collection_select :brand, Brand.all, :id, :name %>
+        <%= f.collection_select :brand, Brand.alphabetical, :id, :name, include_blank: 'Select One' %>
     </div><br>
 
     <p> Add a new Brand: </p>
