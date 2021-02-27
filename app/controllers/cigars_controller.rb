@@ -1,4 +1,5 @@
 class CigarsController < ApplicationController
+    #before_action :require_login
 
     def index
         @cigars = Cigar.all
