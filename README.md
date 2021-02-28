@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Digital Humidor is a simple Rails app that allows users to keep track of their favorite cicgars. A user may sign up directly through the app, or with Google. Users can browse cigars they've added previously, add new cigars, leave ratings and reviews.
 
-Things you may want to cover:
+# Getting Started - 
 
-* Ruby version
+Fork this repo and clone it to your computer. Then cd into the directory and run 'bundle install.' Migrate the database with 'rake db:migrate', then start up the server with 'rails s'.
 
-* System dependencies
+# License
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project is licensed under the MIT License. - see the License.md file for details.
