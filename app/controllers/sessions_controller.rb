@@ -9,13 +9,20 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(username: params[:user][:username])
-        if @user.try(:authenticate, params[:user][:password])
+        if params[:provider]
+            @user = User.create_by_google_omniauth(auth)
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            flash[:error] = "Invalid login credentials. Please try again."
-            redirect_to login_path
+            @user = User.find_by(username: params[:user][:username])
+        
+            if @user.try(:authenticate, params[:user][:password])
+                session[:user_id] = @user.id
+                redirect_to user_path(@user)
+            else
+                flash[:error] = "Invalid login credentials. Please try again."
+                redirect_to login_path
+            end
         end
     end
 
@@ -25,7 +32,9 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        User.find_or_create_by(email: auth[:info][:email])
+        @user = User.create_by_google_omniauth(auth)
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
     end
 
     private
