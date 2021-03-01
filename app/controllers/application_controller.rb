@@ -16,10 +16,6 @@ class ApplicationController < ActionController::Base
         redirect_to login_path unless logged_in?
     end
 
-    def redirect_if_logged_in
-        redirect_to cigars_path if logged_in?
-    end
-
     def redirect_if_not_logged_in
         redirect_to login_path if !logged_in?
     end
