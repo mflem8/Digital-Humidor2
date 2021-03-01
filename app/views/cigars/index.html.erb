@@ -2,5 +2,6 @@
 
 <% @cigars.each do |c| %>
     <h3><%= c.brand.name %> <%= c.name %></h3>
-    <%= link_to "Leave a Review", new_cigar_review_path(c.id) %>
+    <%= link_to "Leave a Review", new_cigar_review_path(c.id) %><br>
+    <%= link_to "More Info", cigar_path(c.id) %>
 <% end %>
