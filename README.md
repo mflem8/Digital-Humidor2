@@ -1,6 +1,6 @@
 # README
 
-Digital Humidor is a simple Rails app that allows users to keep track of their favorite cicgars. A user may sign up directly through the app, or with Google. Users can browse cigars they've added previously, add new cigars, leave ratings and reviews.
+Digital Humidor is a simple Rails app that allows users to keep track of their favorite cicgars. Users can view their own cigars as well as cigars tracked by other users. A user may sign up directly through the app, or with Google. Users can browse cigars they've added previously, add new cigars, leave ratings and reviews.
 
 # Getting Started - 
 
