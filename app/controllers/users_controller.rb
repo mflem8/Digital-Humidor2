@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :edit, :update, :destroy]
     before_action :require_logged_in, except: [:new, :create]
 
     def new
-        @user = User.new
+        if logged_in?
+            @user = User.find_by(id: session[:user_id])
+            redirect_to cigars_path
+        else
+            @user = User.new
+        end
     end
 
     def create
@@ -28,7 +32,4 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, :password)
     end
 
-    def set_user
-        @user = User.find(params[:id])
-    end
 end
