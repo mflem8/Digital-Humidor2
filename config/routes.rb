@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new]
   end
   resources :brands
-  resources :users
+  resources :users, only: [:new]
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
