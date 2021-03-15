@@ -1,1 +1,3 @@
 <h3>"<%= @review.summary %>" - <%= @review.stars %> Stars</h3>
+
+<%= button_to "Delete Review", review_path(@review), method: :delete, data: {confirm: "Are you sure?"} %><br>

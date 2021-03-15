@@ -1,11 +1,7 @@
 class ReviewsController < ApplicationController
 
     def index
-        if @cigar = Cigar.find_by_id(params[:cigar_id])
-            @reviews = @cigar.reviews
-        else
-            @reviews = Review.all
-        end
+        @reviews = Review.all
     end
 
     def new
@@ -24,6 +20,11 @@ class ReviewsController < ApplicationController
 
     def show
         @review = Review.find_by_id(params[:id])
+    end
+
+    def destroy
+        Review.find(params[:id]).destroy
+        redirect_to cigars_path
     end
 
     private

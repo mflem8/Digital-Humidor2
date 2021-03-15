@@ -1,0 +1,16 @@
+<h1>Edit <%= @cigar.name %></h1>
+
+<%= form_for @cigar do |f| %>
+<div>
+    <%= f.label 'Name:' %>
+    <%= f.text_area :name %>
+</div>
+<br>
+<div>
+    <%= f.label 'Style:' %>
+    <%= f.text_field :style %>
+</div>
+<br>
+
+    <%= f.submit 'Save Changes' %>
+<% end %>

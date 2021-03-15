@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
   resources :reviews
   resources :cigars do
-    resources :reviews, only: [:new]
+    resources :reviews
   end
-  resources :brands
+  resources :brands, only: [:new, :show]
   resources :users
 
 

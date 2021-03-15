@@ -24,14 +24,20 @@ class CigarsController < ApplicationController
         end
     end
 
+    def edit
+        @cigar = Cigar.find(params[:id])
+    end
+
+    def update
+        @cigar = Cigar.find(params[:id])
+        @cigar.update(cigar_params)
+        redirect_to cigar_path(@cigar)
+    end
+
     private
 
     def cigar_params
         params.require(:cigar).permit(:name, :style, :brand_id, brand_attributes: [:name])
     end
 
-    def set_cigar
-        @cigar = Cigar.find_by(params[:id])
-        redirect_to cigars_path if !@cigar
-    end
 end
