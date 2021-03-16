@@ -1,4 +1,18 @@
 <h2><%= @cigar.brand.name %> <%= @cigar.name %></h2>
 <p>Style: <%= @cigar.style %></p>
 
+<div><h3>User Reviews:</h3>
+    <ul>
+        <% @cigar.reviews.each do |rev| %>
+            <li> <em>"<%= rev.summary %>"</em></li>
+        <% end %>
+    </ul>
+</div>
+
+<div>
+    <h3>Average Stars: <%= @cigar.avg_stars %></h3>
+</div>
+
 <%= button_to "Edit Cigar", edit_cigar_path, method: :get %><br>
+
+
