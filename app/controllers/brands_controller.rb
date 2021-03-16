@@ -8,4 +8,5 @@ class BrandsController < ApplicationController
         @brand = Brand.new
     end
 
+
 end
