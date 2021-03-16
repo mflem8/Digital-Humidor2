@@ -15,5 +15,9 @@ class Cigar < ApplicationRecord
       errors.add(:name, 'has already been added for that brand!')
     end
   end
+
+  def avg_stars
+        self.reviews.average(:stars).to_f
+  end
   
 end
