@@ -8,6 +8,7 @@ class Cigar < ApplicationRecord
 
   validates :name, :style, presence: true
   validate :not_a_duplicate
+  
 
   def not_a_duplicate
     cigar = Cigar.find_by(style: style, brand_id: brand_id)
@@ -17,7 +18,10 @@ class Cigar < ApplicationRecord
   end
 
   def avg_stars
-        self.reviews.average(:stars).to_f
+    if self.reviews.sum(:stars) >= 1
+      self.reviews.average(:stars).to_f.round(1)
+    else
+      "No Ratings Yet!"
+    end
   end
-  
 end
